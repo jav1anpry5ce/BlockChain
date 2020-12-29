@@ -29,13 +29,21 @@ function sendJCoin(fromAddress, toAddress, amount, privateKey) {
 // tx1.signTransaction(javankey);
 // coin.addTransaction(tx1);
 
+console.log(coin.pendingTransactions);
 console.log("Starting the miner...");
 coin.minePendingTransactions(amitwallet);
 
 console.log("\nBlance of Javan wallet:", coin.getBalance(javanwallet));
 console.log("\nBalance of Amit wallet:", coin.getBalance(amitwallet));
 
-sendJCoin(amitwallet, javanwallet, 101, amitkey);
+sendJCoin(amitwallet, javanwallet, 10, amitkey);
+console.log("\nStarting the miner...");
+coin.minePendingTransactions("sdgdf");
+sendJCoin(javanwallet, amitwallet, 1.5, javankey);
+
+sendJCoin(amitwallet, javanwallet, 3, amitkey);
+sendJCoin(javanwallet, amitwallet, 7, javankey);
+console.log(coin.pendingTransactions);
 
 console.log("\nStarting the miner...");
 coin.minePendingTransactions("sdgdf");
@@ -44,3 +52,4 @@ console.log("\nBlance of Javan wallet:", coin.getBalance(javanwallet));
 console.log("\nBalance of Amit wallet:", coin.getBalance(amitwallet));
 
 console.log("Is chain valid:", coin.validateChain());
+console.log(coin);
